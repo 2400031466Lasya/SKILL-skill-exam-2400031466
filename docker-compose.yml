@@ -1,14 +1,12 @@
-name: microservices-deployment
-
 services:
   postgresdb:
     image: postgres:16-alpine
     container_name: postgresdb
     restart: unless-stopped
     environment:
+      POSTGRES_DB: skill-exam-2400031466
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: root
-      POSTGRES_DB: skill-exam-2400031466
     ports:
       - "5432:5432"
     volumes:
@@ -24,7 +22,7 @@ services:
       context: .
       dockerfile: DockerFile
     container_name: exam-service
-    image: 2400031466/skill-skill-exam-2400031466:latest
+    image: 2400031466/skill-exam-2400031466:latest
     restart: unless-stopped
     ports:
       - "2004:8001"
